@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jordan Martinez | Education Leadership Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-green: #03a64a;
+            --primary-purple: #67018c;
+            --accent-yellow: #f8c529;
+            --accent-lime: #9bd918;
+            --accent-purple: #a71ad9;
+            --light-gray: #d6d3cb;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--white);
+        }
+
+        /* Navigation */
+        nav {
+            background: linear-gradient(135deg, var(--primary-purple) 0%, var(--accent-purple) 100%);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--accent-lime) 100%);
+            color: var(--white);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        header p {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .tagline {
+            font-style: italic;
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Sections */
+        section {
+            margin: 3rem 0;
+            padding: 2rem;
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        section h2 {
+            color: var(--primary-purple);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--accent-yellow);
+        }
+
+        /* Bio Section */
+        .bio-content {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .profile-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-green), var(--accent-lime));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--white);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .bio-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Artifacts Grid */
+        .artifacts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .artifact-card {
+            background: var(--light-gray);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 5px solid var(--primary-green);
+            transition: all 0.3s ease;
+        }
+
+        .artifact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+            border-left-color: var(--accent-purple);
+        }
+
+        .artifact-card h3 {
+            color: var(--primary-purple);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .artifact-icon {
+            font-size: 1.5rem;
+        }
+
+        .artifact-description {
+            margin: 1rem 0;
+            color: #555;
+        }
+
+        .artifact-reflection {
+            background: var(--white);
+            padding: 1rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+            font-style: italic;
+            border-left: 3px solid var(--accent-yellow);
+        }
+
+        .view-artifact {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.7rem 1.5rem;
+            background: var(--primary-green);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .view-artifact:hover {
+            background: var(--primary-purple);
+            transform: translateX(5px);
+        }
+
+        /* Philosophy Section */
+        .philosophy-content {
+            background: linear-gradient(to right, rgba(103, 1, 140, 0.05), rgba(3, 166, 74, 0.05));
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 5px solid var(--primary-purple);
+        }
+
+        .philosophy-content p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        /* Impact Stats */
+        .impact-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--primary-green), var(--accent-lime));
+            color: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.95;
+        }
+
+        /* Testimonials */
+        .testimonial {
+            background: var(--light-gray);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            border-left: 5px solid var(--accent-yellow);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--primary-purple);
+        }
+
+        /* Resume Link */
+        .resume-link {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: var(--accent-purple);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .resume-link:hover {
+            background: var(--primary-purple);
+            transform: scale(1.05);
+        }
+
+        /* Contact */
+        .contact-info {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--primary-green);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-purple);
+            color: var(--white);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .bio-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .profile-photo {
+                margin: 0 auto;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .artifacts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#philosophy">Leadership Philosophy</a></li>
+            <li><a href="#artifacts">Leadership Artifacts</a></li>
+            <li><a href="#impact">Student Impact</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#resume">Resume</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Jordan Martinez</h1>
+        <p>Instructional Leader | Data-Driven Educator | Student Advocate</p>
+        <p class="tagline">"Empowering teachers to transform student outcomes through coaching, collaboration, and continuous improvement"</p>
+    </header>
+
+    <div class="container">
+        <!-- About Section -->
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="bio-content">
+                <div class="profile-photo">JM</div>
+                <div class="bio-text">
+                    <p>I am a passionate educator entering my fourth year of teaching 5th-grade mathematics at Lincoln Elementary School. Throughout my teaching career, I have consistently demonstrated exceptional student outcomes, with 92% of my students meeting or exceeding grade-level standards in mathematics—a 35-point improvement from baseline assessments.</p>
+                    
+                    <p>As Grade Team Lead for the past two years, I have discovered my passion for instructional leadership. I coach and mentor three novice teachers, facilitate weekly data meetings, and lead professional development sessions focused on mathematical discourse and differentiated instruction. This experience has solidified my commitment to expanding my impact beyond my classroom walls.</p>
+                    
+                    <p>I am now pursuing school leadership opportunities where I can leverage my instructional expertise, coaching skills, and data-driven approach to support teachers and improve student achievement at a broader scale. I am particularly interested in instructional coach and assistant principal roles where I can continue developing teachers while contributing to school-wide instructional excellence.</p>
+
+                    <p><strong>Current Role:</strong> 5th Grade Mathematics Teacher & Grade Team Lead<br>
+                    <strong>Education:</strong> B.A. in Mathematics, University of Georgia | M.Ed. in Curriculum & Instruction (In Progress)<br>
+                    <strong>Certifications:</strong> Georgia Teaching Certificate (T-5), Preparing for GACE Educational Leadership (Tier 1)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leadership Philosophy -->
+        <section id="philosophy">
+            <h2>Leadership Philosophy</h2>
+            <div class="philosophy-content">
+                <p><strong>My Core Belief:</strong> Every teacher has the potential to profoundly impact student learning when provided with targeted support, meaningful feedback, and opportunities for professional growth. As an instructional leader, my role is to create the conditions for teachers to thrive and students to excel.</p>
+
+                <p><strong>Data-Driven Instruction:</strong> I believe in using data not as a judgment tool, but as a compass for continuous improvement. Through collaborative data analysis, teachers gain insights into student thinking, identify instructional gaps, and adjust their practice to meet every learner's needs. I facilitate this process by creating safe spaces for reflection and actionable goal-setting.</p>
+
+                <p><strong>Coaching as Partnership:</strong> Effective coaching is built on trust, respect, and a genuine belief in each teacher's capabilities. I approach coaching conversations with curiosity rather than evaluation, asking powerful questions that help teachers discover their own solutions. This asset-based approach honors teachers' strengths while supporting their growth edges.</p>
+
+                <p><strong>Equity-Centered Leadership:</strong> I am committed to disrupting educational inequities by ensuring all students have access to rigorous, grade-level instruction. This means challenging deficit narratives, implementing culturally responsive practices, and holding high expectations for every learner regardless of their starting point. My leadership work centers on removing barriers to student success rather than lowering standards.</p>
+
+                <p><strong>Continuous Learning:</strong> I model the growth mindset I expect from teachers and students. I actively seek feedback on my leadership, engage in ongoing professional learning, and view challenges as opportunities for development. This commitment to continuous improvement drives both my personal practice and the collaborative culture I foster.</p>
+            </div>
+        </section>
+
+        <!-- Student Impact -->
+        <section id="impact">
+            <h2>Student Impact & Outcomes</h2>
+            <div class="impact-stats">
+                <div class="stat-card">
+                    <div class="stat-number">92%</div>
+                    <div class="stat-label">Students meeting/exceeding standards</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">35pt</div>
+                    <div class="stat-label">Average growth from baseline</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Teachers coached to improved outcomes</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">15</div>
+                    <div class="stat-label">Professional development sessions led</div>
+                </div>
+            </div>
+            <div class="artifact-description" style="margin-top: 2rem;">
+                <p><strong>Key Achievements:</strong></p>
+                <ul style="margin-left: 2rem; line-height: 2;">
+                    <li>Increased students performing at advanced level from 18% to 47% over two school years</li>
+                    <li>Closed achievement gaps for English Language Learners by 28 percentage points through differentiated small-group instruction</li>
+                    <li>Led grade-level team to become highest-performing 5th grade in the district (from 5th to 1st place)</li>
+                    <li>Coached three first-year teachers whose collective student growth exceeded district averages by 22 points</li>
+                    <li>Designed and facilitated math intervention program serving 35 students, with 89% meeting growth targets</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Artifacts -->
+        <section id="artifacts">
+            <h2>Leadership Artifacts</h2>
+            <div class="artifacts-grid">
+                <!-- Artifact 1 -->
+                <div class="artifact-card">
+                    <h3><span class="artifact-icon">🎥</span> Coaching Interaction Video</h3>
+                    <p class="artifact-description">
+                        A 15-minute coaching session with a second-year teacher focusing on questioning techniques to promote mathematical discourse. This video demonstrates my use of the "See It, Name It, Do It" coaching model to help the teacher identify specific instructional moves and practice implementation.
+                    </p>
+                    <div class="artifact-reflection">
+                        <strong>Reflection:</strong> This coaching interaction showcases my ability to build trust while providing direct, actionable feedback. I'm particularly proud of how I used student work samples to ground our conversation in evidence and helped the teacher identify her own strengths before addressing growth areas. The teacher's post-coaching reflection noted increased confidence in facilitating rich mathematical discussions.
+                    </div>
+                    <a href="#" class="view-artifact">View Artifact →</a>
+                </div>
+
+                <!-- Artifact 2 -->
+                <div class="artifact-card">
+                    <h3><span class="artifact-icon">📊</span> Data Meeting Protocol & Analysis</h3>
+                    <p class="artifact-description">
+                        Complete data meeting materials including agenda, student work analysis protocol, data charts showing progress toward goals, and action plan for targeted interventions. This artifact demonstrates my systematic approach to collaborative data analysis and instructional planning.
+                    </p>
+                    <div class="artifact-reflection">
+                        <strong>Reflection:</strong> Leading data meetings has become one of my greatest strengths as an instructional leader. This artifact represents my growth in facilitating productive conversations that move from data observation to concrete instructional adjustments. By creating structured protocols and visual representations of student progress, I help teachers see patterns, celebrate growth, and identify next steps without feeling overwhelmed by data.
+                    </div>
+                    <a href="#" class="view-artifact">View Artifact →</a>
+                </div>
+
+                <!-- Artifact 3 -->
+                <div class="artifact-card">
+                    <h3><span class="artifact-icon">👥</span> Professional Development Session</h3>
+                    <p class="artifact-description">
+                        Materials from a 90-minute PD session I designed and facilitated for 18 teachers on "Addressing Unfinished Learning Without Lowering Expectations." Includes session slides, participant activities, video exemplars, and implementation resources.
+                    </p>
+                    <div class="artifact-reflection">
+                        <strong>Reflection:</strong> This professional learning experience demonstrates my ability to translate research into practical, classroom-ready strategies. Participant feedback (avg. 4.8/5) highlighted the balance of theory and practice, and follow-up observations showed 83% of participants implementing at least three strategies within two weeks. This affirmed my belief that effective PD must be job-embedded and immediately applicable.
+                    </div>
+                    <a href="#" class="view-artifact">View Artifact →</a>
+                </div>
+
+                <!-- Artifact 4 -->
+                <div class="artifact-card">
+                    <h3><span class="artifact-icon">📝</span> Coaching Feedback Samples</h3>
+                    <p class="artifact-description">
+                        Collection of written feedback provided to coached teachers following classroom observations, including scripted low-inference notes, strengths-based commendations, and growth-oriented coaching questions aligned to instructional frameworks.
+                    </p>
+                    <div class="artifact-reflection">
+                        <strong>Reflection:</strong> These artifacts showcase my growth in providing specific, evidence-based feedback that honors teachers' professionalism while pushing their practice forward. I've learned that effective feedback is both affirming and challenging—it names concrete strengths while identifying precise growth areas with clear next steps for improvement.
+                    </div>
+                    <a href="#" class="view-artifact">View Artifact →</a>
+                </div>
+
+                <!-- Artifact 5 -->
+                <div class="artifact-card">
+                    <h3><span class="artifact-icon">🎯</span> Student Outcome Goals & Evidence</h3>
+                    <p class="artifact-description">
+                        Documentation of SMART goals set for coached teachers' classrooms, progress monitoring data across three checkpoints, and final outcome results with analysis of factors contributing to success and areas for continued growth.
+                    </p>
+                    <div class="artifact-reflection">
+                        <strong>Reflection:</strong> This artifact demonstrates my commitment to accountability and results. By helping teachers set ambitious yet achievable goals and regularly monitoring progress, I create a culture of continuous improvement. The 87% goal achievement rate across coached teachers reflects the power of clear expectations combined with consistent support.
+                    </div>
+                    <a href="#" class="view-artifact">View Artifact →</a>
+                </div>
+
+                <!-- Artifact 6 -->
+                <div class="artifact-card">
+                    <h3><span class="artifact-icon">🏆</span> Professional Certificates & Learning</h3>
+                    <p class="artifact-description">
+                        Certificates from completed professional learning experiences including: ASLF (Academic School Leader Fellowship), Instructional Coaching Certification, Data-Driven Instruction Training, Equity in Mathematics Education, and Culturally Responsive Teaching Practices.
+                    </p>
+                    <div class="artifact-reflection">
+                        <strong>Reflection:</strong> These certifications represent my intentional investment in developing leadership competencies beyond my classroom. Each learning experience has shaped my coaching practice and deepened my understanding of what effective instructional leadership requires. I continue to seek opportunities that challenge my thinking and expand my impact.
+                    </div>
+                    <a href="#" class="view-artifact">View Artifact →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section id="testimonials">
+            <h2>Testimonials & Recommendations</h2>
+            
+            <div class="testimonial">
+                <p class="testimonial-text">"Jordan has been instrumental in my growth as a first-year teacher. Her coaching helped me move from feeling overwhelmed by data to using it confidently to adjust my instruction. She asks questions that push my thinking without making me feel judged. My students' growth this year—from 58% to 84% proficiency—reflects the impact of her support."</p>
+                <p class="testimonial-author">— Maria Gonzalez, 2nd Year Teacher, Lincoln Elementary</p>
+            </div>
+
+            <div class="testimonial">
+                <p class="testimonial-text">"As Jordan's principal, I have witnessed her natural leadership abilities firsthand. She commands respect from colleagues through expertise and authenticity, not authority. Her facilitation of our grade-level data meetings has transformed how our team approaches instruction. Teachers now see data as a tool for improvement rather than something to fear. I have no doubt Jordan will be an exceptional school leader."</p>
+                <p class="testimonial-author">— Dr. Patricia Williams, Principal, Lincoln Elementary School</p>
+            </div>
+
+            <div class="testimonial">
+                <p class="testimonial-text">"Jordan's PD session on unfinished learning completely changed my approach to supporting struggling students. She provided concrete strategies I could implement immediately, and her follow-up coaching helped me refine my practice. The 'just-in-time' support model she taught has become central to my instruction, and my students are thriving as a result."</p>
+                <p class="testimonial-author">— Kevin Thompson, 5th Grade ELA Teacher, Lincoln Elementary</p>
+            </div>
+
+            <div class="testimonial">
+                <p class="testimonial-text">"I've had the privilege of mentoring Jordan through the Academic School Leader Fellowship. Her growth has been remarkable—she absorbs feedback like a sponge and applies it with intentionality. Her commitment to equity, combined with her instructional expertise, positions her to be a transformational leader. Any school would be fortunate to have Jordan in a leadership role."</p>
+                <p class="testimonial-author">— Marcus Johnson, Assistant Principal, Regional Mentor</p>
+            </div>
+        </section>
+
+        <!-- Resume Section -->
+        <section id="resume">
+            <h2>Resume</h2>
+            <p style="margin-bottom: 2rem; font-size: 1.1rem;">View my complete professional resume highlighting my instructional experience, leadership roles, professional development, and educational background.</p>
+            <a href="#" class="resume-link">📄 Download Full Resume (PDF)</a>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Contact Information</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="contact-icon">📧</span>
+                    <span>jordan.martinez@email.com</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📱</span>
+                    <span>(555) 123-4567</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">🔗</span>
+                    <span>linkedin.com/in/jordanmartinez</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📍</span>
+                    <span>Atlanta, GA</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Jordan Martinez | Instructional Leader Portfolio</p>
+        <p style="margin-top: 0.5rem; opacity: 0.9;">Committed to educational excellence and equity for all students</p>
+    </footer>
+</body>
+</html>
